@@ -16,7 +16,7 @@ pipeline {
     stage('building') {
       steps {
         sh "echo 'building'"
-        build job: "cupu", parameters: [PERSON]
+        build job: "cupu.groovy", parameters: [PERSON]
       }
     }
     stage('post') {
