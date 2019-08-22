@@ -1,8 +1,3 @@
-def githubStatus() {
-     githubNotify account: 'ardhan-mkt', credentialsId: '	ff062375-d54c-4302-98b9-f7ee8a64f46d', 
-         description: 'Build pending', repo: 'klikdokter', 
-         status: 'pending'
-}
 
 pipeline {
   agent any
@@ -16,8 +11,8 @@ pipeline {
     }
     stage('preparation') {
       steps {
-        githubStatus()
         echo "hello ${PERSON}"
+        echo GIT_COMMIT
       }
     }
     stage('building') {
