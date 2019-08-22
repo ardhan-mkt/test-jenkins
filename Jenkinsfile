@@ -1,13 +1,19 @@
 pipeline {
   stages {
     stage('preparation') {
-      echo 'preparation'
+      steps {
+        sh "echo 'preparation'"
+      }
     }
     stage('building') {
-      echo 'building'      
+      steps {
+        sh "echo 'building'"
+      }
     }
     stage('post') {
-      echo 'post'      
+      steps {
+        sh "echo 'post'"
+      }
     }
   }
 }
