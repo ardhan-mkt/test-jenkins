@@ -1,17 +1,22 @@
 pipeline {
   agent { label 'master' }
-  parameters {
-    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-  }
   stages {
+    stage('Parameters') {
+      steps {
+        script {
+          PERSON = [$class: 'StringParameterValue', name: 'person', value: 'Mr. Jenkins Dong']
+        }
+      }
+    }
     stage('preparation') {
       steps {
-        echo "hello ${params.PERSON}"
+        echo "hello ${PERSON}"
       }
     }
     stage('building') {
       steps {
         sh "echo 'building'"
+        build job: "cupu", parameters: [PERSON]
       }
     }
     stage('post') {
