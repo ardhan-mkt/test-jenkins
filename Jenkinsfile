@@ -16,6 +16,7 @@ pipeline {
     }
     stage('preparation') {
       steps {
+        githubStatus()
         echo "hello ${PERSON}"
       }
     }
