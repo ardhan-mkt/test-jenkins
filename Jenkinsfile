@@ -1,3 +1,9 @@
+def githubStatus() {
+     githubNotify account: 'ardhan-mkt', credentialsId: '	ff062375-d54c-4302-98b9-f7ee8a64f46d', 
+         description: 'Build pending', repo: 'klikdokter', 
+         status: 'pending'
+}
+
 pipeline {
   agent any
   stages {
@@ -16,7 +22,7 @@ pipeline {
     stage('building') {
       steps {
         sh "echo 'building'"
-        build job: "cupu.groovy", parameters: [PERSON]
+        //build job: "cupu.groovy", parameters: [PERSON]
       }
     }
     stage('post') {
